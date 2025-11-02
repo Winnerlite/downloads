@@ -312,6 +312,11 @@
       "title": "Bone Lake",
       "downloadUrl": "https://themovieguy.net/file/download.php?file=62c7f7ef-6492-4e32-bd77-f4c704272370&action=download&server=1&token=$token",
       "quality": "720p 119mb"
-    }
+    },
+     {
+      "title": "After Burn",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=b32a2223-870a-42d1-9170-4b5d91101d2c&action=download&server=1&token=$token",
+      "quality": "480p 400mb"
+     }
   ]
 }

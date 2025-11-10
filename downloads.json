@@ -1,44 +1,404 @@
-{
-  "downloads": [
-    {
-      "title": "Caught Stealing",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=dfbcdc6f-d979-4525-ac12-e9aac7af6ab2&action=download&server=1&token=$token",
-      "quality": "720p 300mb MP4"
-    },
-    {
-      "title": "Caught Stealing",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=dfbcdc6f-d979-4525-ac12-e9aac7af6ab2&action=download&server=2&token=$token",
-      "quality": "480p 285mb MP4"
-    },
-    {
-      "title": "Caught Stealing Subtitles",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=02cd8e9e-127b-42d9-8daa-a5a997172af7&action=download&server=1&token=$token",
-      "quality": "Subtitles 87.85kb"
-    },
-    {
-      "title": "The Smashing Machine",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=d4a10c1a-bf45-44e5-8e69-43208a18a48c&action=download&server=1&token=$token",
-      "quality": "720p 609mb"
-    },
-    {
-      "title": "Black Phone 2",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=fa3257ce-dcc0-4482-bb09-f05e681043db&action=download&server=1&token=$token",
-      "quality": "720p 399mb"
-    },
-    {
-      "title": "Bone Lake",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=62c7f7ef-6492-4e32-bd77-f4c704272370&action=download&server=1&token=$token",
-      "quality": "720p 119mb"
-    },
-    {
-      "title": "After Burn",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=b32a2223-870a-42d1-9170-4b5d91101d2c&action=download&server=1&token=$token",
-      "quality": "480p 400mb"
-    },
-    {
-      "title": "Head Over Heels",
-      "downloadUrl": "https://themovieguy.net/file/download.php?file=a2048b06-c1e0-4af8-bb93-effe88e639ba&action=download&server=1&token=$token",
-      "quality": "720p 237mb"
-    }
-  ]
+<!DOCTYPE html>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Download Link to JSON Converter</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #dddddd;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --subtitle-color: #9b59b6;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--card-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .link-inputs {
+            margin-bottom: 15px;
+        }
+        
+        .link-input {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .link-input input {
+            flex-grow: 1;
+            margin-right: 0;
+        }
+        
+        .remove-link {
+            background-color: var(--error-color);
+            width: 40px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .add-link {
+            background-color: var(--success-color);
+            margin-bottom: 20px;
+        }
+        
+        .quality-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .quality-option {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quality-option.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .quality-option.subtitle-option {
+            border-color: var(--subtitle-color);
+        }
+        
+        .quality-option.subtitle-option.selected {
+            background-color: var(--subtitle-color);
+            color: white;
+            border-color: var(--subtitle-color);
+        }
+        
+        .output-container {
+            position: relative;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 400px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        
+        textarea.editable {
+            background-color: #fff;
+            border: 2px solid var(--primary-color);
+        }
+        
+        textarea.readonly {
+            background-color: #f8f9fa;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: auto;
+            padding: 8px 15px;
+            background-color: var(--success-color);
+        }
+        
+        .edit-toggle {
+            position: absolute;
+            top: 10px;
+            right: 120px;
+            width: auto;
+            padding: 8px 15px;
+            background-color: var(--subtitle-color);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background-color: var(--success-color);
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateX(150%);
+            transition: transform 0.3s;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .api-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .subtitle-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f8f0ff;
+            border-radius: 5px;
+            border-left: 4px solid var(--subtitle-color);
+        }
+        
+        .subtitle-checkbox input[type="checkbox"] {
+            width: auto;
+            transform: scale(1.2);
+        }
+        
+        .subtitle-checkbox label {
+            margin-bottom: 0;
+            color: var(--subtitle-color);
+            font-weight: bold;
+        }
+        
+        .link-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .subtitle-indicator {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--subtitle-color);
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Add to your existing CSS */
+#github-update {
+    background-color: #6e5494;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
 }
+
+#github-update:hover {
+    background-color: #5a4477;
+}
+
+#github-update:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.github-status {
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 5px;
+    border-left: 4px solid #6e5494;
+    margin-top: 10px;
+}
+    </style>
+
+
+    <div class="container">
+        <header>
+            <h1>Movie Download Link to JSON Converter</h1>
+            <p>Enter download links, select quality, and get formatted JSON with movie data from TMDB</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2>Input</h2>
+                
+                <div class="api-info">
+                    <strong>TMDB API Status:</strong> <span id="api-status" style="color: green;">Success</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Download Links (up to 15)</label>
+                    <div class="link-inputs" id="link-inputs">
+                        <div class="link-input">
+                            <div class="link-controls">
+                                <input type="url" class="download-link" placeholder="https://example.com/movie-download">
+                                <button type="button" class="remove-link">×</button>
+                            </div>
+                            <div class="subtitle-checkbox">
+                                <input type="checkbox" class="subtitle-toggle" id="subtitle-toggle-0">
+                                <label for="subtitle-toggle-0">This is a subtitle link</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-link" id="add-link">Add Another Link</button>
+                </div>
+                
+                <div class="form-group">
+                    <label>Quality</label>
+                    <div class="quality-options">
+                        <div class="quality-option selected" data-quality="480p">480p</div>
+                        <div class="quality-option" data-quality="720p">720p</div>
+                        <div class="quality-option" data-quality="1080p">1080p</div>
+                        <div class="quality-option" data-quality="4K">4K</div>
+                        <div class="quality-option" data-quality="HD">HD</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="total-size">Total Size (MB)</label>
+                    <input type="number" id="total-size" placeholder="600" value="600">
+                </div>
+                
+                <button id="generate-json">Generate JSON</button>
+                
+                <!-- Add this button to your controls section, after the Generate JSON button -->
+<button id="github-update" style="background: #6e5494; margin-top: 10px;" disabled="">Updating Repository...</button>
+                
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Fetching movie data from TMDB...</p>
+                </div>
+            <button style="background: rgb(231, 76, 60); margin-top: 5px; margin-left: 10px;">Get New Token</button><div>
+    <div style="font-size: 11px; color: #e74c3c; margin-top: 5px; text-align: center; padding: 5px; background: #fdf2f2; border-radius: 3px;">
+        🔒 Tokens are never stored - enter when prompted
+    </div>
+</div><div>
+    <div style="font-size: 12px; color: #666; margin-top: 5px; text-align: center;">
+        📁 Repository: <strong>winnerlite/downloads</strong>
+    </div>
+</div></div>
+            
+            <div class="card output-container">
+                <h2>Output JSON</h2>
+                <textarea id="output-json" class="editable"></textarea>
+                <button class="edit-toggle" id="edit-toggle" style="background-color: rgb(231, 76, 60);">Lock JSON</button>
+                <button class="copy-btn" id="copy-btn">Copy JSON</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">JSON copied to clipboard!</div>
+
+    
+

@@ -41,6 +41,12 @@
       "downloadUrl": "https://themovieguy.net/file/download.php?file=fa20e2e8-9b88-4852-8f59-4a51e923b670&action=download&server=1&token=$token",
       "quality": "Subtitles",
       "isSubtitle": true
+    },
+    {
+      "title": "Frankenstein.2025.NaijaPrey.com",
+      "downloadUrl": "https://silversurfer.wildshare.net/14b4f43d95b82d75/Frankenstein.2025.NaijaPrey.com.mkv?download_token=601434c93edc03a8a86581f62fa5f9e9aba6e8948dd65e09262b4afe8bb3b610",
+      "quality": "1080p 507mb",
+      "isSubtitle": false
     }
   ]
 }

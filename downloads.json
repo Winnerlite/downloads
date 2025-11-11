@@ -29,6 +29,18 @@
       "downloadUrl": "https://themovieguy.net/file/download.php?file=02cd8e9e-127b-42d9-8daa-a5a997172af7&action=download&server=1&token=$token",
       "quality": "Subtitles",
       "isSubtitle": true
+    },
+    {
+      "title": "After Everything",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=d719df63-2f1a-4f3f-8b5d-37f2addab3b5&action=download&server=1&token=$token",
+      "quality": "480p 195mb",
+      "isSubtitle": false
+    },
+    {
+      "title": "Subtitles for After Everything",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=fa20e2e8-9b88-4852-8f59-4a51e923b670&action=download&server=1&token=$token",
+      "quality": "Subtitles",
+      "isSubtitle": true
     }
   ]
 }

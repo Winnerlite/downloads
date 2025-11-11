@@ -17,6 +17,18 @@
       "downloadUrl": "https://themovieguy.net/file/download.php?file=d4a10c1a-bf45-44e5-8e69-43208a18a48c&action=download&server=1&token=$token",
       "quality": "720p 304mb",
       "isSubtitle": false
+    },
+    {
+      "title": "Caught Stealing",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=dfbcdc6f-d979-4525-ac12-e9aac7af6ab2&action=download&server=1&token=$token",
+      "quality": "720p 168mb",
+      "isSubtitle": false
+    },
+    {
+      "title": "Subtitles for Caught Stealing",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=02cd8e9e-127b-42d9-8daa-a5a997172af7&action=download&server=1&token=$token",
+      "quality": "Subtitles",
+      "isSubtitle": true
     }
   ]
 }

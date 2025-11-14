@@ -275,6 +275,18 @@
       "downloadUrl": "https://www.cdn4.dlmvz.ir/b1/film4/new.gods.nezha.reborn.2021.1080p.web-dl.mp4",
       "quality": "720p 350mb",
       "isSubtitle": false
+    },
+    {
+      "title": "Soul On Fire",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=b8099b30-1474-48bd-bf01-93c2942fb497&action=download&server=1&token=$token",
+      "quality": "720p 550mb",
+      "isSubtitle": false
+    },
+    {
+      "title": "Subtitles for Soul On Fire",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=9489daa7-b6ac-476f-bc94-74cb0a2940a0&action=download&server=1&token=$token",
+      "quality": "Subtitles",
+      "isSubtitle": true
     }
   ]
 }

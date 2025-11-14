@@ -263,6 +263,12 @@
       "downloadUrl": "https://themovieguy.net/file/download.php?file=448d2213-ffa1-4aef-9332-acad6c4b0f49&action=download&server=1&token=$token",
       "quality": "Subtitles",
       "isSubtitle": true
+    },
+    {
+      "title": "Avatar: the way of water",
+      "downloadUrl": "http://103.145.232.246/Data/movies/Hollywood/2022/Avatar%20The%20Way%20of%20Water%20%282022%29/Avatar.mp4",
+      "quality": "720p 350mb",
+      "isSubtitle": false
     }
   ]
 }

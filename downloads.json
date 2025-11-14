@@ -245,6 +245,24 @@
       "downloadUrl": "https://silversurfer.wildshare.net/2293b188f2373e3e/The.Rats.A.Witchers.Tale.2025.NaijaPrey.com.mkv?download_token=7aa5198e95457164d5892e841abd6294fa3db335aa861f20a2d1d701de13ba66",
       "quality": "480p 340mb",
       "isSubtitle": false
+    },
+    {
+      "title": "Play Date",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=9910def5-202d-4e30-9e74-d1454f9190a5&action=download&server=1&token=$token",
+      "quality": "720p 435mb",
+      "isSubtitle": false
+    },
+    {
+      "title": "Play Date",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=9910def5-202d-4e30-9e74-d1454f9190a5&action=download&server=2&token=$token",
+      "quality": "720p 435mb",
+      "isSubtitle": false
+    },
+    {
+      "title": "Subtitles for Play Date",
+      "downloadUrl": "https://themovieguy.net/file/download.php?file=448d2213-ffa1-4aef-9332-acad6c4b0f49&action=download&server=1&token=$token",
+      "quality": "Subtitles",
+      "isSubtitle": true
     }
   ]
 }
